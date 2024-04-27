@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box,Stack } from '@mui/material'
+import { Box,Stack, Typography } from '@mui/material'
 import Icon from '../assets/icons/gym.png'
 function BodyPart({bodyPart,setBodyPart , item}) {
   return (
@@ -9,13 +9,20 @@ function BodyPart({bodyPart,setBodyPart , item}) {
     justifyContent='center'
     className='bodyPart-card'
     sx={{
-        borderTop: bodyPart == item? '4px solid #ff2625':'',
+        borderTop: bodyPart === item ? '4px solid #ff2625':'',
         backgroundColor:'#fff',
         borderBottomLeftRadius:'20px',
         width: '270px', height: '282px', cursor: 'pointer', gap: '47px'
     }}
+
+    onClick={()=>{setBodyPart(item)
+    window.scrollTo({top:1800 , left:100 , behavior:'smooth'})}}
+
     >
         <img src={Icon} alt="dumb-bell" style={{width:'40px' , height:'40px'}}/>
+        <Typography fontSize='24px' fontWeight='bold' color='#3A1212' textTransform='capitalize'>
+          {item}
+        </Typography>
     </Stack>
   )
 }

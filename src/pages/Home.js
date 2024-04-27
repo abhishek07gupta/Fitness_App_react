@@ -5,7 +5,7 @@ import HeroBanner from '../components/HeroBanner'
 import SeachExercise from '../components/SeachExercise'
 
 function Home() {
-  const [bodyPart,setBodyPart] =useState('All')
+  const [bodyPart,setBodyPart] =useState('all')
   const [exercise,setExercises] = useState([]);
   return (
     <Box>

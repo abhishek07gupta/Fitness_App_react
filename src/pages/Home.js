@@ -6,12 +6,12 @@ import SeachExercise from '../components/SeachExercise'
 
 function Home() {
   const [bodyPart,setBodyPart] =useState('all')
-  const [exercise,setExercises] = useState([]);
+  const [exercises,setExercises] = useState([]);
   return (
     <Box>
       <HeroBanner/>
       <SeachExercise bodyPart={bodyPart} setBodyPart={setBodyPart} setExercises={setExercises}/>
-      <Exercises bodyPart={bodyPart} setBodyPart={setBodyPart} setExercises={setExercises}/>
+      <Exercises bodyPart={bodyPart} exercises={exercises} setExercises={setExercises}/>
     </Box>
   )
 }

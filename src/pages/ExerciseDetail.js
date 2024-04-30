@@ -17,14 +17,14 @@ function ExerciseDetail() {
 
       const exerciseData = await fetchData(`${exerciseDBUrl}/exercises/exercise/${id}`,exerciseOptions)
       setExerciseDetail(exerciseData)
-      const exerciseVideoData = await fetchData(`${youtubeSearchUrl}/search/${exerciseDetail.name}`,videosOptions)
-      setexerciseVideos(exerciseVideoData);
+      const exerciseVideoData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetail.name}`,videosOptions)
+      setexerciseVideos(exerciseVideoData.contents);
     }
 
     fetchExerciseData();
   },[id])
 
-  console.log(exerciseDetail)
+  console.log(exerciseVideos)
   return (
     <Box>
       <Detail exerciseDetail={exerciseDetail}/>

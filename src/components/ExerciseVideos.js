@@ -1,17 +1,18 @@
 import React from 'react'
 import { Box , Typography , Stack } from '@mui/material'
-
+import Loader from './Loader'
 function ExerciseVideos({exerciseVideos, name}) {
-  // console.log(exerciseVideos)
+  console.log(exerciseVideos.slice(0,5))
+  if(!exerciseVideos.length)return <Loader/>
   return (
     <Box sx={{ marginTop: { lg: '100px', xs: '20px' } }} p='20px'>
       <Typography variant='h4'  mb="33px"> Watch <span style={{color:'#ff2626' , textTransform:'capitalize'}}>{name}</span> exercise videos. </Typography>
       <Stack justifyContent='flex-start' flexWrap='wrap' alignItems='center'
-      sx={{direction:{lg:'row'},gap:{lg:'110px' ,xs:'0px'}}}>
-         {exerciseVideos?.slice(0,5).map((item , index)=>(
+      sx={{direction:{lg:'row'} ,gap:{lg:'110px' ,xs:'0px'}}}>
+         {exerciseVideos?.slice(0,5)?.map((item , index)=>(
           <a key={index} className='exercise-video'
           href={`https://www.youtube.com/watch?v=${item.video.videoId}`}
-          target='blank' rel='norefferer'>
+          target='_blank' rel='noreferrer'>
             <img src={item.video.thumbnails[0].url} alt={item.video.title} />
             <Box>
               <Typography variant='h6' color='#000'>
